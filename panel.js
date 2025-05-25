@@ -18,7 +18,7 @@ function navigateAndClose(id) {
 }
 
 function envoyerCommande() {
-  const panel = document.getElementById("panneau").value;
+  const panel = document.getElementById("panneaux").value;
   const numero = document.getElementById("whatsapp").value;
   const moyen = document.getElementById("paiement").value;
 
