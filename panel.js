@@ -1,4 +1,4 @@
-const audio = new Audio('music.mp3');
+const audio = new Audio('music1.mp3');
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
