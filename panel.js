@@ -22,7 +22,7 @@ function envoyerCommande() {
   const code = document.getElementById("code").value;
   const moyen = document.getElementById("paiement").value;
 
-  const message = `Je veux un ${panel}, mon moyen de paiement est ${moyen},Code de Référentiel : ${code}`;
+  const message = `Je veux un ${panel}, mon moyen de paiement est ${moyen},Code Référentiel : ${code}`;
   const numeroWhatsApp = "237689200244";
   const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
   
