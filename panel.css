@@ -1,7 +1,91 @@
+const audio = new Audio('sounds/menu-open.mp3');
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('menu-overlay');
+  if (!menu.classList.contains('active')) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+  menu.classList.toggle('active');
+}
+
+function navigateAndClose(id) {
+  scrollToSection(id);
+  document.getElementById('menu-overlay').classList.remove('active');
+}
+
+function envoyerCommande() {
+  const panel = document.getElementById("panneau").value;
+  const moyen = document.getElementById("paiement").value;
+
+  const message = `Je veux un ${panel}, mon moyen de paiement est ${moyen}.;
+  const numeroWhatsApp = "237689200244";
+  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+  
+  window.open(url, "_blank");
+}
+function autoScrollCarousel() {
+  const carousel = document.querySelector('.carousel');
+  let scrollPos = 0;
+  const panelWidth = 320; 
+
+  setInterval(() => {
+    scrollPos += panelWidth;
+    if (scrollPos >= carousel.scrollWidth - carousel.clientWidth) {
+      scrollPos = 0;
+    }
+    carousel.scrollTo({
+      left: scrollPos,
+      behavior: 'smooth'
+    });
+  }, 3000);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  autoScrollCarousel(); 
+});
+const traduction = {
+  fr: {
+    header: "Panneaux Pterodactyles",
+    tarifs: "Tarifs",
+    commander: "Commander",
+    contact: "Contact",
+    langues: "Langues",
+    menu_contact: "Contact",
+    menu_commande: "Commander",
+    menu_tarifs: "Tarifs",
+    menu_apropos: "À propos",
+    menu_langues: "Langues",
+    contactText: "N'hésitez pas à nous contacter.",
+    apropos_titre: "À propos",
+    apropos_contenu1: "Nous fournissons des panneaux puissants pour héberger vos serveurs Pterodactyl.",
+    apropos_contenu2: "SENKU TECH met à votre disposition ses services. Notre Principe No1: Satisfaire à tout prix.",
+    apropos_contenu3: "NOBLESSE OBLIGÉ!!!"
+},
+  en: {
+    header: "Pterodactyl Panels",
+    tarifs: "Pricing",
+    commander: "Order",
+    contact: "Contact",
+    langues: "Languages",
+    menu_contact: "Contact",
+    menu_commande: "Order",
+    menu_tarifs: "Pricing",
+    menu_apropos: "About",
+    menu_langues: "Languages",
+    contactText: "Feel free to contact us.",
+    apropos_titre: "About",
+    apropos_contenu1: "We provide powerful panels to host your Pterodactyl servers.",
+    apropos_contenu2: "SENKU TECH offers its services. Our No.1 principle: Satisfaction at all cost.",
+    apropos_contenu3: "NOBLESSE OBLIGÉ!!!"
+},
 body {
   position: relative;
   font-family: Arial, sans-serif;
-  color: red;
+  color: red; /* rouge vif */
   margin: 0;
   padding: 0;
   z-index: 0;
@@ -9,11 +93,11 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-image: url('background1.jpg'); 
+  background-image: url('background1.jpg'); /* ou 'images/background.jpg' selon le dossier */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed; /* pour que ça reste fixe au scroll */
   height: 100vh;
   font-family: Arial, sans-serif;
 }
@@ -203,5 +287,4 @@ button:hover {
 
 .carousel:hover {
   animation-play-state: paused;
-}
-  
+                                }
