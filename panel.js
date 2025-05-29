@@ -19,9 +19,10 @@ function navigateAndClose(id) {
 
 function envoyerCommande() {
   const panel = document.getElementById("panneau").value;
+ 
   const moyen = document.getElementById("paiement").value;
 
-  const message = `Je veux un ${panel}, mon moyen de paiement est ${moyen}.;
+  const message = `Je veux un ${panel}, mon moyen de paiement est ${moyen}. Mon numéro WhatsApp est : ${numero}`;
   const numeroWhatsApp = "237689200244";
   const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
   
@@ -193,4 +194,4 @@ function toggleWhatsAppLinks() {
 function toggleTelegramLinks() {
   const links = document.getElementById('telegram-links');
   links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    }
+                                        }
