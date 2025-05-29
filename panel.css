@@ -1,7 +1,7 @@
 body {
   position: relative;
   font-family: Arial, sans-serif;
-  color: red; /* rouge vif */
+  color: red; 
   margin: 0;
   padding: 0;
   z-index: 0;
@@ -9,11 +9,11 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background-image: url('background1.jpg'); /* ou 'images/background.jpg' selon le dossier */
+  background-image: url('background1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* pour que ça reste fixe au scroll */
+  background-attachment: fixed;
   height: 100vh;
   font-family: Arial, sans-serif;
 }
